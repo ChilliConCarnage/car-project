@@ -1,0 +1,40 @@
+
+public class phrases {
+  
+	public void help(){
+		System.out.println("type: \nplay to bet \nstatus to view your status \n" +
+				"bookie to get your bookies opinion \nshop to view the shop");
+	}
+	
+	public void correct(){
+		System.out.println("congratulation you put your money on the right car");
+	}
+	
+	public void incorrect(){
+		System.out.println("ohh, unlucky, you put your money on the wrong car");
+	}
+
+	public void which(){
+		System.out.println("which car do you think will win,\n please enter 'red' 'yellow' or 'green'");
+	}
+	
+	public void yn(){
+		System.out.println("are you sure you want the bookie`s opinion, it will cost 1 coin, y/n");
+	}
+	
+	public void welcome(){
+		System.out.println("welcome to the amazing car game, please enter your name");
+	}
+	
+	public void bet(){
+		System.out.println("please place your bet");
+	}
+	
+	public void howbet(int x){
+		System.out.println("your bet has to lie between 0 and" + (x+1));
+	}
+	
+	public void end() {
+		System.out.println("ohh no, you have become bankrupt, try again next time");
+	}
+}
