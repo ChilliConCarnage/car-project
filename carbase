@@ -1,0 +1,10 @@
+import java.util.*;
+public class carbase {
+  Random random = new Random();
+	int speed;
+	
+	public void getspeed(){
+		speed = random.nextInt();
+	}
+	
+}
