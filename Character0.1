@@ -1,0 +1,70 @@
+import java.io.*;
+public class Character {
+  int[] itemcost = {5,15,20};
+	String[] item ={"car","house","wife"};
+	String name;
+	int coins = 100;
+	int betsmade;
+	String answer;
+
+	public void display() {
+		System.out.println("name: " + name + "\ncoins: " + coins +  "\nbets made: " + betsmade + "\n \nitems:");
+		for(int i = 0; i < 3; i++){
+			if(itemcost[i] == 0){
+				System.out.println(item[i]);
+			}
+			
+		}
+	}
+	
+	public void shop() throws IOException{
+		InputStreamReader reader = new InputStreamReader(System.in);
+		BufferedReader input = new BufferedReader(reader);
+		System.out.println("hello, welcome to the shop,") ;
+		
+		do {
+			System.out.print("type: \nbuy to purchase \nexit to exit the shop");
+			answer = input.readLine();
+		
+			if (answer.equals("buy")){
+				
+				
+				do {
+					System.out.println("type in whatever you wish to buy, available to buy are:");
+					for(int i = 0; i <3; i++){
+						if (itemcost[i] != 0){
+							System.out.println(item[i]);
+						}
+					}
+				
+				System.out.println("alternatley type 'exit' to go back to the shop");
+							answer = input.readLine();
+					
+					for (int i = 0; i < 3; i++) {
+						if (answer.equals(item[i]) && coins < itemcost[i]) {
+							System.out.println(" sorry you do not have enough the " + item[i] + " costs " + itemcost[i]);
+						
+						} else if (answer.equals(item[i]) && itemcost[i] == 0){
+							System.out.println("you have allready purchased that");
+						
+						} else if (answer.equals(item[i])) {
+							System.out.println("are you sure, it will cost " + itemcost[i] + " coins: y/n");
+							answer = input.readLine();
+							if(answer.equals("y")){
+								coins = coins - itemcost[i];
+								itemcost[i] = 0;
+								System.out.println("thank you for purchasing the " + item[i]);
+							}
+						}
+					}
+				
+				
+				}while (!answer.equals("exit"));
+			
+			
+			}
+		
+		}while (!answer.equals("exit"));
+	}
+
+}
