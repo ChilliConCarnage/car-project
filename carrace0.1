@@ -1,0 +1,141 @@
+
+import java.io.*;
+import java.util.*;
+public class carrace {
+  public  static void main(String[] args) throws IOException{
+		InputStreamReader reader = new InputStreamReader(System.in);
+		BufferedReader input = new BufferedReader(reader);
+		carbase carred = new carbase();
+		carbase caryellow = new carbase();
+		carbase cargreen = new carbase();
+		Character shop = new Character();
+		phrases say = new phrases();
+		
+		String text;
+		int bet;
+		String first;
+		String last;
+		
+		carred.getspeed();
+		caryellow.getspeed();
+		cargreen.getspeed();
+		
+		if (carred.speed > caryellow.speed && carred.speed > cargreen.speed) {
+			first = "red";
+		} else if (caryellow.speed > carred.speed && caryellow.speed > cargreen.speed ) {
+			first = "yellow";
+		} else {
+			first = "green";
+		}
+		
+		if (carred.speed < caryellow.speed && carred.speed < cargreen.speed) {
+			last = "red";
+		} else if (caryellow.speed < carred.speed && caryellow.speed < cargreen.speed ) {
+			last = "yellow";
+		} else {
+			last = "green";
+		}
+		
+		say.welcome();
+		shop.name = input.readLine();
+		say.help();
+		
+		
+		
+		do {
+				String answer = input.readLine();
+		
+				
+				if(answer.equals("status")){
+					shop.display();
+				
+				}else if(answer.equals("bookie")) {
+					say.yn();
+					answer = input.readLine();
+					
+					if(answer.equals("y")){
+						shop.coins = shop.coins - 1;
+						bookie.opinion(first,last);
+					}
+						
+				}else if (answer.equals("shop")){
+					shop.shop();
+					
+				}else if (answer.equals("play")){
+					
+					say.bet();
+					do {
+						say.howbet(shop.coins);
+						text = input.readLine();
+						bet = new Integer(text).intValue();
+					} while (bet < 1 || bet > shop.coins);
+					
+					do{
+					say.which();
+					answer = input.readLine();	
+					} while(!answer.equals("yellow") && !answer.equals("red") && !answer.equals("green"));
+		
+					switch (answer) {
+		
+							case "red" :
+								if (first.equals("red")) {
+									say.correct();
+									shop.coins = shop.coins + bet;
+									break;
+								}else{ 
+									say.incorrect();
+									shop.coins = shop.coins - bet;
+									break;
+								}	
+		
+							case "yellow" :
+								if (first.equals("yellow")) {
+									say.correct();
+									shop.coins = shop.coins + bet;
+									break;
+								}else{ 
+									say.incorrect();
+									shop.coins = shop.coins - bet;
+									break;
+								}	
+			
+							case "green" :
+								if (first.equals("green")) {
+									say.correct();
+									shop.coins = shop.coins + bet;
+									break;
+								}else{ 
+									say.incorrect();
+									shop.coins = shop.coins - bet;
+								} 
+						}
+					
+					shop.betsmade++;
+					carred.getspeed();
+					caryellow.getspeed();
+					cargreen.getspeed();
+					
+					if (carred.speed > caryellow.speed && carred.speed > cargreen.speed) {
+						first = "red";
+					} else if (caryellow.speed > carred.speed && caryellow.speed > cargreen.speed ) {
+						first = "yellow";
+					} else {
+						first = "green";
+					}
+					
+					if (carred.speed < caryellow.speed && carred.speed < cargreen.speed) {
+						last = "red";
+					} else if (caryellow.speed < carred.speed && caryellow.speed < cargreen.speed ) {
+						last = "yellow";
+					} else {
+						last = "green";
+					}
+					
+					
+					} else { 
+						say.help();
+					}
+					
+			} while(shop.coins > 0);
+	}
+}
