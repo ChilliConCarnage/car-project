@@ -1,0 +1,31 @@
+public class bookie {
+  static int count=1;
+	
+	public static void opinion(String x,String y) {
+		
+		switch(count){
+		
+			case 1: 
+				System.out.println(" I would bet on the " + x +  " car, ");
+				count++;
+				break;
+			case 2:
+				System.out.println("the " + y + " car driver was out boozing last night I wouldn't bet on him");
+				count++;
+				break;
+			case 3:
+				System.out.println("do not bet on the " + y + " car he has had a recent injury");
+				count++;
+				break;
+			case 4:
+				System.out.println(x + " has had a great season, I would bet on him");
+				count++;
+				break;
+			case 5:
+				System.out.println(y + " has had some mechanical problems of late dont bet on him");
+				count = 1;
+				break;
+				
+		}
+	}
+}
