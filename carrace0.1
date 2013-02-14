@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 public class carrace {
@@ -22,17 +21,21 @@ public class carrace {
 		
 		if (carred.speed > caryellow.speed && carred.speed > cargreen.speed) {
 			first = "red";
-		} else if (caryellow.speed > carred.speed && caryellow.speed > cargreen.speed ) {
+		} 
+		else if (caryellow.speed > carred.speed && caryellow.speed > cargreen.speed ) {
 			first = "yellow";
-		} else {
+		} 
+		else {
 			first = "green";
 		}
 		
 		if (carred.speed < caryellow.speed && carred.speed < cargreen.speed) {
 			last = "red";
-		} else if (caryellow.speed < carred.speed && caryellow.speed < cargreen.speed ) {
+		} 
+		else if (caryellow.speed < carred.speed && caryellow.speed < cargreen.speed ) {
 			last = "yellow";
-		} else {
+		}
+		else {
 			last = "green";
 		}
 		
@@ -43,25 +46,22 @@ public class carrace {
 		
 		
 		do {
-				String answer = input.readLine();
-		
-				
-				if(answer.equals("status")){
-					shop.display();
-				
-				}else if(answer.equals("bookie")) {
-					say.yn();
-					answer = input.readLine();
-					
-					if(answer.equals("y")){
+			String answer = input.readLine();	
+			if(answer.equals("status")){
+				shop.display();
+			}
+			else if(answer.equals("bookie")) {
+				say.yn();
+				answer = input.readLine();	
+				if(answer.equals("y")){
 						shop.coins = shop.coins - 1;
 						bookie.opinion(first,last);
 					}
-						
-				}else if (answer.equals("shop")){
+				}		
+				else if (answer.equals("shop")){
 					shop.shop();
-					
-				}else if (answer.equals("play")){
+					}
+				else if (answer.equals("play")){
 					
 					say.bet();
 					do {
